@@ -15,7 +15,7 @@ My collection will be a collection of plants and trees that have medicinal prope
 ### Target Audience(s) (Milestone 1)
 > Tell us about your target audience(s).
 
-The target audience is someone who many want to find natural remedies to simple sicknesses such as a cold and injuries such as a cut.
+The target audience is a plant enthusiast who many want to find natural remedies to simple sicknesses such as a cold and injuries such as a cut or someone who just wants to learn more about medicinal plants.
 
 
 ### Design Patterns (Milestone 1)
@@ -31,6 +31,18 @@ The main goal of this catalog is to help customers find plants that not only wil
 * Allows the user to filter for plants using various attributes such as plant type, water needs, landscape use, flowering season etc.
 * Once a search is made pictures of the plants shop up in rows with it's common name, botanical name, item number on the catalog, and one good thing about the plant.
 * When the user clicks on a certain plant more information about the plant, where it grows, it's care needs, and benefits are listed.
+
+Plant Catalog by Annie's Annuals and Perennials:
+https://www.anniesannuals.com/
+
+The main goal of this catalog is also to help customers find the best plant that they may be intrested in.
+
+* Unlike the previous catalog there are a lot more filters in this catalog as well as a search bar.
+* As this is the catalog of the plant store it self it is designed like an online store.
+    + Where thumbnails of plants with its picture and name shows up
+    + The user can either add it to their shopping list or to a wishlist.
+
+Using these two examples of plant catalogs, I have some idea as to which fields maybe necessary to help users find products they like. For example Location is a very important field that I didn't think of earlier.
 
 ## Design & Planning (Milestone 2)
 
