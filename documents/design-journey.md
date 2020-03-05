@@ -9,7 +9,22 @@ Be clear and concise in your writing. Bullets points are encouraged.
 ### Describe your Catalog (Milestone 1)
 > What will your collection be about? What types of attributes will you keep track of for the *things* in your catalog? 1-2 sentences.
 
-My collection will be a collection of plants and trees that have medicinal properties. Attributes such as plant type, leaf type, bark type, bark color, scienctific name, common name, and medicinal properties it holds and diseases it cures against will be listed.
+My collection will be a curated collection of plants and trees that have medicinal properties.
+
+Fields Listed:
+
++ Common Name: Text (Size: 30)
++ Scienctific Name: Text (Size: 40)
++ Other Names: Text (Size: 60)
++ Cure: Text (Size:20)
+
++ Location: Text (Size:20)
++ Lifespan: Text (Size:10)
++ Endangered:
++ Type: Text (Size:10)
++ Description: Chars (Size:200)
+    + Includes Identification information such as leaf type, bark type, fruits, what part of the plant is used, interesting facts
+
 
 
 ### Target Audience(s) (Milestone 1)
@@ -50,6 +65,11 @@ Using these two examples of plant catalogs, I have some idea as to which fields 
 > Document your design process. Show us the evolution of your design from your first idea (sketch) to design you wish to implement (sketch). Show us the process you used to organize content and plan the navigation, if applicable.
 > Label all images. All labels must be visible in VS Code's Markdown Preview.
 > Clearly label the final design.
+
+![image](final design.jpg)
+
+
+
 
 
 ## Partials (Milestone 2)
