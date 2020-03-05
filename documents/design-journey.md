@@ -20,10 +20,9 @@ Fields Listed:
 
 + Location: Text (Size:20)
 + Lifespan: Text (Size:10)
-+ Endangered:
 + Type: Text (Size:10)
 + Description: Chars (Size:200)
-    + Includes Identification information such as leaf type, bark type, fruits, what part of the plant is used, interesting facts
+    + Includes Identification information such as leaf type, bark type, fruits, what part of the plant is used, whether its endangered, and other interesting facts
 
 
 
@@ -63,11 +62,21 @@ Using these two examples of plant catalogs, I have some idea as to which fields 
 
 ## Design Process (Milestone 2)
 > Document your design process. Show us the evolution of your design from your first idea (sketch) to design you wish to implement (sketch). Show us the process you used to organize content and plan the navigation, if applicable.
-> Label all images. All labels must be visible in VS Code's Markdown Preview.
-> Clearly label the final design.
 
+### Initial Design Planning:
 
-![Sketch of Final Design](final design.jpg)
+The initial idea was to create a catalog with images in a similar way to a shopping cart and have each of the images lead to a separate page with all the information for the plant. However as this would be too extensive, I decided to create two pages. One that stars a few plants which lead to description pages when you click on them and another page with the catalog as a table.
+
+![A Sketch of The Initial Design Page1](InitialFirstPageSketch.jpg)
+*<div align='center'>This is the first page with a nav bar, a showcase, a search ribbon, a plant showcase and a footer.</div>*
+
+![A Sketch of The Initial Design Page2](InitialSecondPageSketch.jpg)
+*<div align='center'>This is the second page that has the nav bar, the footer, search and filter methods, and the catalog. </div>*
+
+## Final Design:
+![A Sketch of Final Design](FinalDesign.jpg)
+*<div align='center'>This is the sketch of the final website where the left half of the page contains the home page with a navigation bar, a showcase area, a search ribbon, a showcase of plants, and footer. The right half of the page contain the second page which main contains the nav bar, an image ribbon, a search bar, filter buttons, and upload button ribbon, the catalog, and a footer. The design has updated to be more aesthetically pleasing, concise with a good amount of white space, and an easily interactive search bar and filtering buttons. Once the user clicks the upload button a form will show up prompting them to add information in the directed fields. </div>*
+
 
 
 
@@ -76,13 +85,29 @@ Using these two examples of plant catalogs, I have some idea as to which fields 
 ## Partials (Milestone 2)
 > If you have any partials, plan them here.
 
+The nav bar and the footer will be in partials since they are crucial to both of the pages. The navigation bar will allow users to access the main two pages at any time, so they are never lost in the website. I will include the name of the website and the links to the pages. The footer will include the copyright information and any image citations.
+
 
 ## Database Schema (Milestone 2)
-> Describe the structure of your database. You may use words or a picture. A bulleted list is probably the simplest way to do this. Make sure you include constraints for each field.
+> Describe the structure of your database.
 
-Table: movies
-- field 1: description..., constraints...
-- field...
+
+<div align='center'>
+
+|Plants| Constraints |
+|-----|--------------|
+| id | Integer (Size:300) |
+| name | Text (Size: 30) |
+| scientific_name | Text (Size: 40) |
+| cures | (Size:50) |
+| type | Text (Size:10) |
+| location | Text (Size:20) |
+| lifespan | Text (Size:10) |
+| description | Chars (Size:200) |
+
+</div>
+
+
 
 
 ## Database Query Plan (Milestone 2)
@@ -90,25 +115,51 @@ Table: movies
 
 1. All records
 
-    ```
+    ``` SQL
     TODO
+
+    SELECT name AS Name,
+        scientfic_name AS ScienctificName,
+        cures AS Cures,
+        type AS Type,
+        location AS Location
+        lifespand AS Lifespan,
+        description AS Description
+
+    FROM Plants;
+
     ```
 
 2. Search records
 
-    ```
+    ``` SQL
     TODO
+    <!-- When using the search bar -->
+    SELECT * FROM Plants
+    WHERE search_input = SUBSTR(name,search_input) OR
+            search_input = SUBSTR(scientific_name,search_input) OR
+            search_input = SUBSTR(cure,search_input) OR
+            search_input = SUBSTR(lifespan,search_input) OR
+            search_input = SUBSTR(type,search_input) OR
+            search_input = SUBSTR(location,search_input) OR
+            search_input = SUBSTR(description,search_input);
+
     ```
 
 3. Insert record
 
-    ```
+    ``` SQL
     TODO
+    <!-- First create a form where the user can input the different fields required to add data to the catalog. Filter the inputs and assign them to variables using PHP. If the user doesn't input data for certain fields assign them NULL. Then use SQL to insert the data in to the database. -->
+    INSERT INTO Plants
+    VALUES (name, scientific_name, cure, tupe, lifespan, location, description) ;
+
     ```
 
 
 ## Code Planning (Milestone 2)
 > Plan any PHP code you'll need here.
+
 
 
 # Reflection (Final Submission)
