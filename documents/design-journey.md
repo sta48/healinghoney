@@ -66,7 +66,8 @@ Using these two examples of plant catalogs, I have some idea as to which fields 
 > Label all images. All labels must be visible in VS Code's Markdown Preview.
 > Clearly label the final design.
 
-![image](final design.jpg)
+
+![Sketch of Final Design](final design.jpg)
 
 
 
