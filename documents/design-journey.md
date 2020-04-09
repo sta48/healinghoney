@@ -9,9 +9,11 @@ Be clear and concise in your writing. Bullets points are encouraged.
 ### Describe your Catalog (Milestone 1)
 > What will your collection be about? What types of attributes will you keep track of for the *things* in your catalog? 1-2 sentences.
 
-My collection will be a curated collection of plants and trees that have medicinal properties.
+My collection will be a curated collection of herbs and plants that have medicinal properties.
 
-Fields Listed:
+Brainstorming for Fields Listed:
+
+My first vision of the website was more focused on the attributes of plants and herbs where I decided to showcase the following fields.
 
 + Common Name: Text (Size: 30)
 + Scienctific Name: Text (Size: 40)
@@ -24,18 +26,32 @@ Fields Listed:
 + Description: Chars (Size:200)
     + Includes Identification information such as leaf type, bark type, fruits, what part of the plant is used, whether its endangered, and other interesting facts
 
+However, after interviewing a few plant enthusiasts as well as people interested in herbal medicine, I realized there is more interest in the benefits of a plant and how to attain them, rather than the specifics of identifying a plant. Thus, I updated my fields accordingly and made sure to decrease the number of fields so that people get the most interesting information with little reading.
+
++ Name: Text (Size: 30)
++ Description: Chars (Size:200)
+    + Includes Identification information such as leaf type, bark type, fruits, where you may come across such a plant
++ Location: Text (Size:40)
+    + Country and Ecosystem
++ Benefits: Text (Size:60)
+    + Antibacterial, antiinflammatory, digestive benefits etc.
++ Buy, Grow, Prepare: Text (Size:60)
+    + Where to buy it, How to grow it, how to apply it or ingest it
 
 
 ### Target Audience(s) (Milestone 1)
 > Tell us about your target audience(s).
 
-The target audience is a plant enthusiast who many want to find natural remedies to simple sicknesses such as a cold and injuries such as a cut or someone who just wants to learn more about medicinal plants.
+The target audience is a plants or herbs enthusiast who wants to learn how to heal naturally inside and out.
 
 
 ### Design Patterns (Milestone 1)
 > Review some existing catalog that are similar to yours. List the catalog's you reviewed here. Write a small reflection on how you might use the design patterns you identified in your review in your own catalog.
 
-Plant Catalog by Monrovia: https://www.monrovia.com/plant-catalog/
+Plant Catalog by [Monrovia](https://www.monrovia.com/plant-catalog/):
+
+![A view of the catalog in Monrovia](ex1.png)
+
 
 The main goal of this catalog is to help customers find plants that not only will grow where the customer is located, but also meets their landscaping needs. If a plant is not available for sale online the catalog leads the user to other retailers that carry the plant.
 
@@ -46,8 +62,9 @@ The main goal of this catalog is to help customers find plants that not only wil
 * Once a search is made pictures of the plants shop up in rows with it's common name, botanical name, item number on the catalog, and one good thing about the plant.
 * When the user clicks on a certain plant more information about the plant, where it grows, it's care needs, and benefits are listed.
 
-Plant Catalog by Annie's Annuals and Perennials:
-https://www.anniesannuals.com/
+Plant Catalog by [Annie's Annuals and Perennials](https://www.anniesannuals.com/):
+
+![A View of the homepage in Annie's](ex2.png)
 
 The main goal of this catalog is also to help customers find the best plant that they may be intrested in.
 
@@ -56,7 +73,7 @@ The main goal of this catalog is also to help customers find the best plant that
     + Where thumbnails of plants with its picture and name shows up
     + The user can either add it to their shopping list or to a wishlist.
 
-Using these two examples of plant catalogs, I have some idea as to which fields maybe necessary to help users find products they like. For example Location is a very important field that I didn't think of earlier.
+These two websites both have very through information, however a lot of times it seems that all information jumps at the user at once confusing them as to where to look. This could be improved by taking a minimalistic approach on the overall catalog and only show the most important information. The details are better suited for the description page of each of the plants. Also as I am creating an informational catalog instead of a shopping catalog, I will focus on the information that helps the reader get to know the plant and it's benefits as opposed to specific details about price range and planting information
 
 ## Design & Planning (Milestone 2)
 
@@ -65,7 +82,9 @@ Using these two examples of plant catalogs, I have some idea as to which fields 
 
 ### Initial Design Planning:
 
-The initial idea was to create a catalog with images in a similar way to a shopping cart and have each of the images lead to a separate page with all the information for the plant. However as this would be too extensive, I decided to create two pages. One that stars a few plants which lead to description pages when you click on them and another page with the catalog as a table.
+The initial idea was to create a catalog with images in a similar way to a shopping cart and have each of the images lead to a separate page with all the information for the plant. However as this would be too extensive, I decided to create two pages. One that stars a few plants with multitudonal benefits and another page with detainled information about of the plants as a table.
+
+As I was thinking of the different components that I may want to include in the webiste I drew a quick skeitch with of the layout.
 
 ![A Sketch of The Initial Design Page1](InitialFirstPageSketch.jpg)
 *<div align='center'>This is the first page with a nav bar, a showcase, a search ribbon, a plant showcase and a footer.</div>*
@@ -73,13 +92,22 @@ The initial idea was to create a catalog with images in a similar way to a shopp
 ![A Sketch of The Initial Design Page2](InitialSecondPageSketch.jpg)
 *<div align='center'>This is the second page that has the nav bar, the footer, search and filter methods, and the catalog. </div>*
 
-## Final Design:
+After the quick sketch I went on to put more details on each of the features and tried out different colors to understand what design would give the users the best experience. I chose green to be consistent with the natural theme of the website and a few bright pastel colors to highlight the functional features of the website. This is so that users are easily guided to the interactive parts of the website.
+
 ![A Sketch of Final Design](FinalDesign.jpg)
-*<div align='center'>This is the sketch of the final website where the left half of the page contains the home page with a navigation bar, a showcase area, a search ribbon, a showcase of plants, and footer. The right half of the page contain the second page which main contains the nav bar, an image ribbon, a search bar, filter buttons, and upload button ribbon, the catalog, and a footer. The design has updated to be more aesthetically pleasing, concise with a good amount of white space, and an easily interactive search bar and filtering buttons. Once the user clicks the upload button a form will show up prompting them to add information in the directed fields. </div>*
+*<div align='center'> This is the sketch of the website with both pages side by side. This was done so that I stayed consistent with the design on both of the pages.</div>*
 
+The left half of the page contains the home page with a navigation bar, a showcase area, a search ribbon, a showcase of plants, and footer. The right half of the page contain the second page which main contains the nav bar, an image ribbon, a search bar, filter buttons, and upload button ribbon, the catalog, and a footer. The design has updated to be more aesthetically pleasing, concise with a good amount of white space, and an easily interactive search bar and filtering buttons. Once the user clicks the upload button a form will show up prompting them to add information in the directed fields.
 
+## Final Design Sketch:
 
+After finalizing all the features I wanted to add more detail to the features and redesign the color scheme to stay consistent with the natural theme. I also wanted to showcase a minimalistic design so that the a sense of serenity induced and the user doesnt feel cluttered. This way can take in the information more effectively and retain it better for future use.
 
+![A Sketch of Final Design](FinalDesign2.png)*<div align='center'>This is the Homepage that showcases the theme of the website.</div>*
+
+![A Sketch of Final Design](FinalDesign3.png)*<div align='center'>This is the interactive catalog page that informs the user</div>*
+
+I decided to stick to a black and white outline of the website to give it a modern feel. So that the user instantly is reminded of the serenity in nature I used green. On the website a variety of green colors will be used to blend in the features as well as highlight important interactive features.
 
 
 ## Partials (Milestone 2)
@@ -91,23 +119,20 @@ The nav bar and the footer will be in partials since they are crucial to both of
 ## Database Schema (Milestone 2)
 > Describe the structure of your database.
 
+The database will consist of one table, plants, where each plant will identified using a unique id. All of the supporting information will also be contained in the same table.
 
 <div align='center'>
 
-|Plants| Constraints |
+|plants| Constraints |
 |-----|--------------|
-| id | Integer (Size:300) |
-| name | Text (Size: 30) |
-| scientific_name | Text (Size: 40) |
-| cures | (Size:50) |
-| type | Text (Size:10) |
-| location | Text (Size:20) |
-| lifespan | Text (Size:10) |
-| description | Chars (Size:200) |
+| id | Integer (Size:1000) |
+| name | Text (Size: 40) |
+| benefits | Text (Size:400) |
+| description | Text (Size: 200) |
+| location | (Size:40) |
+| buy_grow_prepare | Text (Size:400) |
 
 </div>
-
-
 
 
 ## Database Query Plan (Milestone 2)
@@ -119,13 +144,10 @@ The nav bar and the footer will be in partials since they are crucial to both of
     TODO
 
     SELECT name AS Name,
-        scientfic_name AS ScienctificName,
-        cures AS Cures,
-        type AS Type,
-        location AS Location
-        lifespand AS Lifespan,
-        description AS Description
-
+        benefits AS Benefits
+        description  AS Description,
+        location AS Location,
+        buy_grow_prepare AS Buy, Grow, Prepare
     FROM Plants;
 
     ```
@@ -150,9 +172,8 @@ The nav bar and the footer will be in partials since they are crucial to both of
 
     ``` SQL
     TODO
-    <!-- First create a form where the user can input the different fields required to add data to the catalog. Filter the inputs and assign them to variables using PHP. If the user doesn't input data for certain fields assign them NULL. Then use SQL to insert the data in to the database. -->
-    INSERT INTO Plants
-    VALUES (name, scientific_name, cure, tupe, lifespan, location, description) ;
+    <!-- First create a form where the user can input the different fields required to add data to the catalog. Filter the inputs and assign them to variables using PHP. If the user doesn't input data for certain fields assign them ''. Then use SQL to insert the data in to the database. -->
+    INSERT INTO plants (name, benefits, description, location, buy_grow_prepare) VALUES (:name, :benefits, :description, :location, :buy_grow_prepare);
 
     ```
 
