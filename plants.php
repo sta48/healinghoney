@@ -130,7 +130,7 @@ if (isset($_GET['search'])) {
       <h2> Herb Collection </h2>
 
       <?php
-      $sql = "SELECT * FROM plants WHERE name LIKE '%' || :search || '%' OR benefits LIKE '%' || :search || '%' OR description LIKE '%' || :search || '%' OR location LIKE '%' || :search || '%' OR prepare LIKE '%' || :search || '%'";
+      $sql = "SELECT * FROM plants WHERE _name LIKE '%' || :search || '%' OR benefits LIKE '%' || :search || '%' OR _description LIKE '%' || :search || '%' OR _location LIKE '%' || :search || '%' OR prepare LIKE '%' || :search || '%'";
 
       $params = array(
         ":search" => $search
