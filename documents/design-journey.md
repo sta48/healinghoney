@@ -28,15 +28,15 @@ My first vision of the website was more focused on the attributes of plants and 
 
 However, after interviewing a few plant enthusiasts as well as people interested in herbal medicine, I realized there is more interest in the benefits of a plant and how to attain them, rather than the specifics of identifying a plant. Thus, I updated my fields accordingly and made sure to decrease the number of fields so that people get the most interesting information with little reading.
 
-+ Name: Text (Size: 30)
++ Name: Text (Size: 100)
 + Description: Chars (Size:200)
-    + Includes Identification information such as leaf type, bark type, fruits, where you may come across such a plant
-+ Location: Text (Size:40)
+    + Includes Identification information such as leaf type, bark type, fruits, location, where you may come across such a plant, etc.
++ Location: Text (Size:400)
     + Country and Ecosystem
-+ Benefits: Text (Size:60)
++ Benefits: Text (Size:100)
     + Antibacterial, antiinflammatory, digestive benefits etc.
-+ Buy, Grow, Prepare: Text (Size:60)
-    + Where to buy it, How to grow it, how to apply it or ingest it
++ Prepare: Text (Size:400)
+    + how to apply it or ingest it
 
 
 ### Target Audience(s) (Milestone 1)
@@ -109,6 +109,9 @@ After finalizing all the features I wanted to add more detail to the features an
 
 I decided to stick to a black and white outline of the website to give it a modern feel. So that the user instantly is reminded of the serenity in nature I used green. On the website a variety of green colors will be used to blend in the features as well as highlight important interactive features.
 
+![A Picture of a Color Scheme](colors.png)*<div align='center'>This picture from [Color Palette](https://color.romanuke.com/tsvetovaya-palitra-2366/)  is an example of the color scheme that will fit the theme while keeping a modern look. These colors hold a warm tone that makes the user feel eaily welcome.</div>*
+
+![A Picture of a Color Scheme](colors2.png)*<div align='center'>This scheme is also from [Color Palette](https://colorpalettes.net/color-palette-3998/)]. These colors are the more vibrant version of the previous scheme that induces an energetic atmosphere.</div>*
 
 ## Partials (Milestone 2)
 > If you have any partials, plan them here.
@@ -125,12 +128,12 @@ The database will consist of one table, plants, where each plant will identified
 
 |plants| Constraints |
 |-----|--------------|
-| id | Integer (Size:1000) |
-| name | Text (Size: 40) |
-| benefits | Text (Size:400) |
-| description | Text (Size: 200) |
-| location | (Size:40) |
-| buy_grow_prepare | Text (Size:400) |
+| id | Integer |
+| name | Text (Size: 100) |
+| benefits | Text (Size:200) |
+| description | Text (Size: 400) |
+| location | Text (Size: 100) |
+| prepare | Text (Size:400) |
 
 </div>
 
@@ -159,12 +162,10 @@ The database will consist of one table, plants, where each plant will identified
     <!-- When using the search bar -->
     SELECT * FROM Plants
     WHERE search_input = SUBSTR(name,search_input) OR
-            search_input = SUBSTR(scientific_name,search_input) OR
-            search_input = SUBSTR(cure,search_input) OR
-            search_input = SUBSTR(lifespan,search_input) OR
-            search_input = SUBSTR(type,search_input) OR
+            search_input = SUBSTR(benefits,search_input) OR
+            search_input = SUBSTR(description,search_input) OR
             search_input = SUBSTR(location,search_input) OR
-            search_input = SUBSTR(description,search_input);
+            search_input = SUBSTR(prepare,search_input);
 
     ```
 
@@ -173,7 +174,7 @@ The database will consist of one table, plants, where each plant will identified
     ``` SQL
     TODO
     <!-- First create a form where the user can input the different fields required to add data to the catalog. Filter the inputs and assign them to variables using PHP. If the user doesn't input data for certain fields assign them ''. Then use SQL to insert the data in to the database. -->
-    INSERT INTO plants (name, benefits, description, location, buy_grow_prepare) VALUES (:name, :benefits, :description, :location, :buy_grow_prepare);
+    INSERT INTO plants (name, benefits, description, location, grow_prepare) VALUES (:name, :benefits, :description, :location, :grow_prepare);
 
     ```
 
@@ -181,7 +182,35 @@ The database will consist of one table, plants, where each plant will identified
 ## Code Planning (Milestone 2)
 > Plan any PHP code you'll need here.
 
+``` php
+// Plan for conducting a search through the database
+if (isset($_GET['search'])) {
+    // Sanitize all inputs using VALIDATE and SANITIZE
+    // Conduct the search and provide correctional feedback
+} else {
+  // Set search query to NULL
+}
+if (//search was conducted) {
+    // TODO: write the queries
+    // TODO: display the data
+}else {// No results found
+}
 
+function print_data{
+    // TODO: a function that helps print the data
+}
+
+// Plan for inserting data into database
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // TODO: sanitize and validate all input values
+    // TODO: insert valid reviews into database
+  if ($valid_review) {
+    $sql = "INSERT INTO table (...) VALUES (...)";
+    $params = array(...);
+    $result = exec_sql_query($db, $sql, $params);
+    // TODO: Show confirmation of whether the data was added to the table
+}
+```
 
 # Reflection (Final Submission)
 > Take this time to reflect on what you learned during this assignment. How have you improved since Project 1? What things did you have trouble with?
