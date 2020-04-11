@@ -222,13 +222,14 @@
 
   h2{
     font: 50px Dr Sugiyama;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 50px 20px;
     text-align: center;
   }
 
   table{
     font: 20px Raleway;
     font-weight: light;
+    padding-bottom: 40px;
   }
 
   table th{
@@ -242,7 +243,7 @@
   #addherb{
     font: 30px Raleway;
     width: 60%;
-    margin-left: 25%;
+    margin-left: 27.5%;
   }
 
   .form{
@@ -251,8 +252,8 @@
   }
 
   #addherb input{
-    height: 40px;
-    width: 400px;
+    height: 80px;
+    width: 600px;
     font: 30px Raleway;
     color: #4d7e29;
     border: 3px solid black;
@@ -261,7 +262,7 @@
   #messege{
     font: 30px Raleway;
     text-align: center;
-    padding-bottom: 20px;
+    padding-top: 80px;
   }
 
  footer {
@@ -275,49 +276,3 @@
   text-decoration: None;
   color: white;
  }
-
-
- /* Media Quieries
- @media(max-width: 768px){
-   header #branding,
-   header li,
-   header nav,
-   #newsletter h1,
-   #newsletter form,
-   #boxes .box,
-   article#main-col,
-   aside#sidebar{
-     float: None;
-     text-align: center;
-     width: 100%;
-   }
-
-   header{
-     padding-bottom: 20px;
-   }
-
-   #showcase h1{
-     margin-top: 40px;
-   }
-
-   #newsletter form{
-     margin-bottom: 20px;
-   }
-
-   #newsletter form input[type="email"], .quote input, .quote textarea{
-     width: 100%;
-     margin-bottom: 5px;
-   }
-
-   #newsletter button, .quote button{
-     display: block;
-     width: 100%;
-
-   }
-
-   ul#services li{
-     margin-bottom: 10px;
-   }
-
-
- } */

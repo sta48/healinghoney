@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $res= exec_sql_query($db, $sql, $params);
     if ( $res ) {
-      array_push($messages, "We have added your favorite herb to our collection! Thank you for your input.");
+      array_push($messages, "We have added your favorite herb to our collection. Thank you for your input!");
     } else {
       array_push($messages, "We could not add the information to our database. Please try again.");
     }
@@ -117,6 +117,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       // show all
       ?>
+      <div id= messege>
+        <?php
+        foreach ($messages as $message) {
+          echo htmlspecialchars($message) ;}
+        ?>
+      </div>
       <h2>Our Collection</h2>
       <?php
 
@@ -156,33 +162,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <h2>Add Your Favorite Herb</h2>
 
-    <div id= messege>
-      <?php
-      foreach ($messages as $message) {
-        echo htmlspecialchars($message) ;}
-      ?>
-    </div>
-
     <form id="addherb" action="plants.php" method="post" novalidate>
         <div class="form">
-          <label>Name:</label>
-          <input type="text" name="_name" />
+          <label><sup>*</sup>Name:</label>
+          <div>
+            <input type="text" name="_name" />
+          </div>
         </div>
         <div class="form">
-          <label>Benefits:</label>
-          <input type="text" name="benefits" />
+          <label><sup>*</sup>Benefits:</label>
+          <div>
+            <input type="text" name="benefits" />
+          </div>
         </div>
         <div class="form">
           <label>Description:</label>
-          <input type="text" name="_description" />
+          <div>
+            <input type="text" name="_description" />
+          </div>
         </div>
         <div class="form">
           <label>Location:</label>
-          <input type="text" name="_location" />
+          <div>
+            <input type="text" name="_location" />
+          </div>
         </div>
         <div class="form">
           <label>Prepare:</label>
-          <input type="text" name="prepare" />
+          <div>
+            <input type="text" name="prepare" />
+          </div>
         </div>
         <div class="form">
           <span></span>
