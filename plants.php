@@ -41,13 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $benefits = filter_input(INPUT_POST, 'benefits', FILTER_SANITIZE_STRING);
   $_description = filter_input(INPUT_POST, '_description', FILTER_SANITIZE_STRING);
   $_location = filter_input(INPUT_POST, '_location', FILTER_SANITIZE_STRING);
-  $prepare = filter_input(INPUT_POST, '_prepare', FILTER_SANITIZE_STRING);
+  $prepare = filter_input(INPUT_POST, 'prepare', FILTER_SANITIZE_STRING);
 
-  // name and benefits required and the herb must be a new herb
+  // name and benefits required
   if ($_name = "") {
-    $valid_review = FALSE;
-  }
-  if (in_array($_name, $plants)) {
     $valid_review = FALSE;
   }
   if ($_benefits = "") {
@@ -60,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql= "INSERT INTO plants (_name, benefits, _description, _location, prepare) VALUES (:_name, :benefits, :_description, :_location, :prepare)";
     $params = array(
-      ":_name" => $name,
+      ":_name" => $_name,
       ":_description" => $_description,
       ":benefits" => $benefits,
       ":_location" => $_location,
@@ -173,19 +170,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <div class="form">
           <label>Benefits:</label>
-          <input type="text" name="_name" />
+          <input type="text" name="benefits" />
         </div>
         <div class="form">
           <label>Description:</label>
-          <input type="text" name="_name" />
+          <input type="text" name="_description" />
         </div>
         <div class="form">
           <label>Location:</label>
-          <input type="text" name="_name" />
+          <input type="text" name="_location" />
         </div>
         <div class="form">
           <label>Prepare:</label>
-          <input type="text" name="_name" />
+          <input type="text" name="prepare" />
         </div>
         <div class="form">
           <span></span>
