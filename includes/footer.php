@@ -1,1 +1,1 @@
-<p>MEYE, Copyright &copy; <?php echo date("Y"); ?></p>
+<p>Healing Honey | Copyright &copy; <?php echo date("Y"); ?></p>

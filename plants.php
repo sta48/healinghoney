@@ -35,25 +35,25 @@ if (isset($_GET['search'])) {
 $plants = exec_sql_query($db, "SELECT DISTINCT _name FROM plants", NULL)->fetchAll(PDO::FETCH_COLUMN);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $valid_review = TRUE;
+  // $valid_review = TRUE;
 
-  $_name = filter_input(INPUT_POST, '_name', FILTER_SANITIZE_STRING);
-  $benefits = filter_input(INPUT_POST, 'benefits', FILTER_SANITIZE_STRING);
-  $_description = filter_input(INPUT_POST, '_description', FILTER_SANITIZE_STRING);
-  $_location = filter_input(INPUT_POST, '_location', FILTER_SANITIZE_STRING);
-  $prepare = filter_input(INPUT_POST, 'prepare', FILTER_SANITIZE_STRING);
+  $_name = filter_input(INPUT_POST, "_name", FILTER_SANITIZE_STRING);
+  $benefits = filter_input(INPUT_POST, "benefits", FILTER_SANITIZE_STRING);
+  $_description = filter_input(INPUT_POST, "_description", FILTER_SANITIZE_STRING);
+  $_location = filter_input(INPUT_POST, "_location", FILTER_SANITIZE_STRING);
+  $prepare = filter_input(INPUT_POST, "prepare", FILTER_SANITIZE_STRING);
 
-  // name and benefits required
-  if ($_name = "") {
-    $valid_review = FALSE;
-  }
-  if ($_benefits = "") {
-    $valid_review = FALSE;
-  }
+  // // name and benefits not required
+  // if (empty($_name)) {
+  //   $valid_review = FALSE;
+  // }
+  // if (empty($_benefits)) {
+  //   $valid_review = FALSE;
+  // }
 
 
   // insert user input herbs
-  if ($valid_review) {
+  // if ($valid_review) {
 
     $sql= "INSERT INTO plants (_name, benefits, _description, _location, prepare) VALUES (:_name, :benefits, :_description, :_location, :prepare)";
     $params = array(
@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       array_push($messages, "We could not add the information to our database. Please try again.");
     }
-  } else {
-    array_push($messages, "Please make sure to add the name of the herb as well as its benefits and try again.");
-  }
+  // } else {
+  //   array_push($messages, "Please make sure to add the name of the herb as well as its benefits and try again.");
+  // }
 }
 ?>
 
