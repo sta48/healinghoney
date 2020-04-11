@@ -35,25 +35,46 @@ if (isset($_GET['search'])) {
 $plants = exec_sql_query($db, "SELECT DISTINCT _name FROM plants", NULL)->fetchAll(PDO::FETCH_COLUMN);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // $valid_review = TRUE;
+  $valid_review = TRUE;
 
-  $_name = filter_input(INPUT_POST, "_name", FILTER_SANITIZE_STRING);
-  $benefits = filter_input(INPUT_POST, "benefits", FILTER_SANITIZE_STRING);
-  $_description = filter_input(INPUT_POST, "_description", FILTER_SANITIZE_STRING);
-  $_location = filter_input(INPUT_POST, "_location", FILTER_SANITIZE_STRING);
-  $prepare = filter_input(INPUT_POST, "prepare", FILTER_SANITIZE_STRING);
+  $_name = $_POST["_name"];
+  $_name = filter_var($_name, FILTER_SANITIZE_STRING);
+  $benefits = $_POST["benefits"];
+  $benefits = filter_var($benefits, FILTER_SANITIZE_STRING);
+  $_description = $_POST["_description"];
+  $_description = filter_var($_description, FILTER_SANITIZE_STRING);
+  $_location = $_POST["_location"];
+  $_location = filter_var($_location, FILTER_SANITIZE_STRING);
+  $prepare = $_POST["prepare"];
+  $prepare = filter_var($prepare, FILTER_SANITIZE_STRING);
 
-  // // name and benefits not required
-  // if (empty($_name)) {
-  //   $valid_review = FALSE;
-  // }
-  // if (empty($_benefits)) {
-  //   $valid_review = FALSE;
-  // }
+
+  function input_num($_name,$benefits,$_description,$_location,$prepare) {
+    $total = 5;
+    if ($_name){
+      $total=$total-1;
+    }
+    if ($benefits){
+      $total=$total-1;
+    }
+    if ($_description){
+      $total=$total-1;
+    }
+    if ($_location){
+      $total=$total-1;
+    }
+    if ($prepare){
+      $total=$total-1;
+    }
+    if($total<2){
+      $valid_review = FALSE;
+    }
+    return $valid_review;
+  }
 
 
   // insert user input herbs
-  // if ($valid_review) {
+  if ($valid_review) {
 
     $sql= "INSERT INTO plants (_name, benefits, _description, _location, prepare) VALUES (:_name, :benefits, :_description, :_location, :prepare)";
     $params = array(
@@ -71,9 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       array_push($messages, "We could not add the information to our database. Please try again.");
     }
-  // } else {
-  //   array_push($messages, "Please make sure to add the name of the herb as well as its benefits and try again.");
-  // }
+  } else {
+    array_push($messages, "Please make sure to add the name of the herb as well as its benefits and try again.");
+  }
 }
 ?>
 
@@ -166,13 +187,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="form">
           <label>Name:</label>
           <div>
-            <input type="text" name="_name" />
+            <input type="text" name="_name"/>
           </div>
         </div>
         <div class="form">
           <label>Benefits:</label>
           <div>
-            <input type="text" name="benefits" />
+            <input type="text" name="benefits"/>
           </div>
         </div>
         <div class="form">
