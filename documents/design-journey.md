@@ -48,6 +48,7 @@ The target audience is a plants or herbs enthusiast who wants to learn how to he
 ### Design Patterns (Milestone 1)
 > Review some existing catalog that are similar to yours. List the catalog's you reviewed here. Write a small reflection on how you might use the design patterns you identified in your review in your own catalog.
 
+<!-- Source: https://www.monrovia.com/plant-catalog/  -->
 Plant Catalog by [Monrovia](https://www.monrovia.com/plant-catalog/):
 
 ![A view of the catalog in Monrovia](ex1.png)
@@ -62,6 +63,7 @@ The main goal of this catalog is to help customers find plants that not only wil
 * Once a search is made pictures of the plants shop up in rows with it's common name, botanical name, item number on the catalog, and one good thing about the plant.
 * When the user clicks on a certain plant more information about the plant, where it grows, it's care needs, and benefits are listed.
 
+<!-- Source: https://www.anniesannuals.com/  -->
 Plant Catalog by [Annie's Annuals and Perennials](https://www.anniesannuals.com/):
 
 ![A View of the homepage in Annie's](ex2.png)
@@ -122,17 +124,17 @@ The nav bar and the footer will be in partials since they are crucial to both of
 ## Database Schema (Milestone 2)
 > Describe the structure of your database.
 
-The database will consist of one table, plants, where each plant will identified using a unique id. All of the supporting information will also be contained in the same table.
+The database will consist of one table, plants, where each plant will identified using a unique id. All of the supporting information will also be contained in the same table. The _ infront of name, description, and location is used to differentiate from the inherent name, description, and location values in sql.
 
 <div align='center'>
 
 |plants| Constraints |
 |-----|--------------|
 | id | Integer |
-| name | Text (Size: 100) |
+| _name | Text (Size: 100) |
 | benefits | Text (Size:200) |
-| description | Text (Size: 400) |
-| location | Text (Size: 100) |
+| _description | Text (Size: 400) |
+| _location | Text (Size: 100) |
 | prepare | Text (Size:400) |
 
 </div>
