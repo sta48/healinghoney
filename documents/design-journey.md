@@ -216,3 +216,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 # Reflection (Final Submission)
 > Take this time to reflect on what you learned during this assignment. How have you improved since Project 1? What things did you have trouble with?
+
+I am better now with a lot of css aspects of the website. However I had a lot of trouble to getting inputs and displaying the outputs.
