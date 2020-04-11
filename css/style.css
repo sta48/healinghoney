@@ -221,7 +221,7 @@
   }
 
   h2{
-    font: 50px Dr Sugiyama;
+    font: 70px Dr Sugiyama;
     padding: 20px 20px 50px 20px;
     text-align: center;
   }
@@ -240,6 +240,11 @@
     color: white;
     padding: 15px;
     width: 20%;
+  }
+
+  table td{
+    padding: 15px;
+    background-color: #f1f1f1;
   }
 
   #addherb{

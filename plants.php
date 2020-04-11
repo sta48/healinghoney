@@ -160,17 +160,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     ?>
 
-    <h2>Add Your Favorite Herb</h2>
+    <h2>Let us know about your favorite Herb.</h2>
 
     <form id="addherb" action="plants.php" method="post" novalidate>
         <div class="form">
-          <label><sup>*</sup>Name:</label>
+          <label>Name:</label>
           <div>
             <input type="text" name="_name" />
           </div>
         </div>
         <div class="form">
-          <label><sup>*</sup>Benefits:</label>
+          <label>Benefits:</label>
           <div>
             <input type="text" name="benefits" />
           </div>
