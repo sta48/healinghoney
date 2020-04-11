@@ -230,6 +230,7 @@
     font: 20px Raleway;
     font-weight: light;
     padding-bottom: 40px;
+    border-collapse:collapse;
   }
 
   table th{
