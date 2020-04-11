@@ -30,6 +30,25 @@
     overflow: hidden;
   }
 
+  .button2{
+    padding: 18px 30px 22px 30px;
+    border: 0;
+    color: #ffffff;
+    background: #4d7e29;
+    font: 25px raleway;
+    align-content: center;
+    margin-left: 25%;
+  }
+
+  .button1{
+    padding: 18px 30px 22px 30px;
+    border: 0;
+    color: #ffffff;
+    background: #4d7e29;
+    font: 25px raleway;
+    align-content: center;
+  }
+
   .button{
     padding: 20px;
     border: 0;
@@ -180,6 +199,71 @@
     width: 100%;
   }
 
+  #searchbar {
+    background-color: black;
+    height: 200px;
+  }
+
+  #searchForm {
+    width: 60%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 55px 20% 0 20%;
+  }
+
+  #searchForm input{
+    height: 60px;
+    width: 500px;
+    margin: 0 20px 0 0 ;
+    font: 20px Raleway;
+    color: #4d7e29;
+  }
+
+  h2{
+    font: 50px Dr Sugiyama;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+  }
+
+  table{
+    font: 20px Raleway;
+    font-weight: light;
+  }
+
+  table th{
+    font: 30px Raleway;
+    font-weight: light;
+    background-color: black;
+    color: white;
+    padding: 15px;
+  }
+
+  #addherb{
+    font: 30px Raleway;
+    width: 60%;
+    margin-left: 25%;
+  }
+
+  .form{
+    padding: 20px 20px 20px 20px;
+    text-align: left;
+  }
+
+  #addherb input{
+    height: 40px;
+    width: 400px;
+    font: 30px Raleway;
+    color: #4d7e29;
+    border: 3px solid black;
+  }
+
+  #messege{
+    font: 30px Raleway;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
  footer {
    margin-top: 20px;
    padding: 20px;
@@ -192,7 +276,8 @@
   color: white;
  }
 
- /* Media Quieries */
+
+ /* Media Quieries
  @media(max-width: 768px){
    header #branding,
    header li,
@@ -235,4 +320,4 @@
    }
 
 
- }
+ } */

@@ -2,100 +2,82 @@
 include("includes/init.php");
 $plants = "class = 'current'";
 
-// open connection to database
-$db = open_sqlite_db("secure/plants.sqlite");
+$db = open_sqlite_db("./secure/plants.sqlite");
 
-// An array to deliver messages to the user.
 $messages = array();
 
-function print_record($record)
+function print_data($data)
 {
 ?>
   <tr>
-    <td>
-      <?php echo htmlspecialchars($record["name"]); ?>
-    </td>
-    <td>
-      <?php echo htmlspecialchars($record["benefits"]);?>
-    </td>
-    <td>
-      <?php echo htmlspecialchars($record["description"]); ?>
-    </td>
-    <td>
-      <?php echo htmlspecialchars($record["location"]); ?>
-    </td>
-    <td>
-      <?php echo htmlspecialchars($record["prepare"]); ?>
-    </td>
+    <td><?php echo htmlspecialchars($data["_name"]); ?></td>
+    <td><?php echo htmlspecialchars($data["benefits"]); ?></td>
+    <td><?php echo htmlspecialchars($data["_description"]); ?></td>
+    <td><?php echo htmlspecialchars($data["_location"]); ?></td>
+    <td><?php echo htmlspecialchars($data["prepare"]); ?></td>
   </tr>
 <?php
 }
+
 // Search Form
 
 if (isset($_GET['search'])) {
   $do_search = TRUE;
-
-  // Get the search terms
   $search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
   $search = trim($search);
 } else {
-  // No search provided, so set the product to query to NULL
   $do_search = FALSE;
   $search = NULL;
 }
 
 // Insert Form
 
-// Get the list of shoes from the database.
-// $plants = exec_sql_query($db, "SELECT DISTINCT _name FROM plants", NULL)->fetchAll(PDO::FETCH_COLUMN);
+$plants = exec_sql_query($db, "SELECT DISTINCT _name FROM plants", NULL)->fetchAll(PDO::FETCH_COLUMN);
 
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//   $valid_review = TRUE;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $valid_review = TRUE;
 
-//   $_name = filter_input(INPUT_POST, '_name', FILTER_SANITIZE_STRING);
-//   $benefits = filter_input(INPUT_POST, 'benefits', FILTER_SANITIZE_STRING);
-//   $_description = filter_input(INPUT_POST, '_description', FILTER_SANITIZE_STRING);
-//   $_location = filter_input(INPUT_POST, '_location', FILTER_VALIDATE_EMAIL);
-//   $prepare = filter_input(INPUT_POST, 'prepare', FILTER_SANITIZE_STRING);
+  $_name = filter_input(INPUT_POST, '_name', FILTER_SANITIZE_STRING);
+  $benefits = filter_input(INPUT_POST, 'benefits', FILTER_SANITIZE_STRING);
+  $_description = filter_input(INPUT_POST, '_description', FILTER_SANITIZE_STRING);
+  $_location = filter_input(INPUT_POST, '_location', FILTER_SANITIZE_STRING);
+  $prepare = filter_input(INPUT_POST, '_prepare', FILTER_SANITIZE_STRING);
 
-//   // product name required
-//   if (!in_array($_name, $shoes)) {
-//     $valid_review = FALSE;
-//   }
-//   if (!in_array($_description, $shoes)) {
-//     $valid_review = FALSE;
-//   }
-//   if (!in_array($benefits, $shoes)) {
-//     $valid_review = FALSE;
-//   }
-
-//   // reviewer and comment are optional; no filtering necessary
-
-//   // insert valid reviews into database
-//   if ($valid_review) {
-//     // TODO: query to insert new record
-
-//     $sql= "INSERT INTO plants (_name, benefits, _description, _location, prepare) VALUES (:_name, :benefits :_description :_location, :prepare)";
-//     $params = array(
-//       ":_name" => $_name,
-//       ":_description" => $_description,
-//       ":benefits" => $benefits,
-//       ":_location" => $location,
-//       ":prepare" => $prepare
-//     );
+  // name and benefits required and the herb must be a new herb
+  if ($_name = "") {
+    $valid_review = FALSE;
+  }
+  if (in_array($_name, $plants)) {
+    $valid_review = FALSE;
+  }
+  if ($_benefits = "") {
+    $valid_review = FALSE;
+  }
 
 
-//     $res= exec_sql_query($db, $sql, $params);
-//     /* TODO: conditional expression to check if query was successful.*/
-//     if ( $res ) {
-//       array_push($messages, "Your herb has been added to our database. We appreciate your contribution!");
-//     } else {
-//       array_push($messages, "our information could not be added. Please try again.");
-//     }
-//   } else {
-//     array_push($messages, "Your information could not be added. Please make sure to add valid name, benefits, and preparation information.");
-//   }
-// }
+  // insert user input herbs
+  if ($valid_review) {
+
+    $sql= "INSERT INTO plants (_name, benefits, _description, _location, prepare) VALUES (:_name, :benefits, :_description, :_location, :prepare)";
+    $params = array(
+      ":_name" => $name,
+      ":_description" => $_description,
+      ":benefits" => $benefits,
+      ":_location" => $_location,
+      ":prepare" => $prepare
+    );
+
+
+    $res= exec_sql_query($db, $sql, $params);
+    if ( $res ) {
+      array_push($messages, "We have added your favorite herb to our collection! Thank you for your input.");
+    } else {
+      array_push($messages, "We could not add the information to our database. Please try again.");
+    }
+  } else {
+    array_push($messages, "Please make sure to add the name of the herb as well as its benefits and try again.");
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -120,102 +102,96 @@ if (isset($_GET['search'])) {
       </div>
     </section>
 
-    <form id="searchbar" action="plants.php" method="get" novalidate>
-      <input type="text" name="search" required/>
-      <button type="submit"> Find It </button>
-    </form>
-
+    <div id= "searchbar">
+      <form id="searchForm" action="plants.php" method="get" novalidate>
+        <input type="text" name="search" required />
+        <button class= button1 type="submit"> Search </button>
+      </form>
+    </div>
     <?php
     if ($do_search) { ?>
-      <h2> Herb Collection </h2>
+      <h2>Herbs Requested</h2>
 
       <?php
-      $sql = "SELECT * FROM plants WHERE _name LIKE '%' || :search || '%' OR benefits LIKE '%' || :search || '%' OR _description LIKE '%' || :search || '%' OR _location LIKE '%' || :search || '%' OR prepare LIKE '%' || :search || '%'";
+        // search query
+        $sql = "SELECT * FROM plants WHERE _name LIKE '%' || :search || '%' OR benefits LIKE '%' || :search || '%' OR _description LIKE '%' || :search || '%' OR _location LIKE '%' || :search || '%' OR prepare LIKE '%' || :search || '%'";
+        $params = array(':search' => $search);
 
-      $params = array(
-        ":search" => $search
-      );
     } else {
+      // show all
       ?>
-      <h2> Our Full Herb Collection </h2>
+      <h2>Our Collection</h2>
       <?php
 
       $sql = "SELECT * FROM plants";
       $params = array();
     }
 
-    $res = exec_sql_query($db, $sql, $params);
-    if ($res) {
-      $data = $res -> fetchAll();
-      if (count($data) > 0){
-        ?>
+    // display the data
+    $result = exec_sql_query($db, $sql, $params);
+    if ($result) {
+      $datas = $result->fetchAll();
+
+      if (count($datas) > 0) {
+      ?>
         <table>
           <tr>
-            <th> Name </th>
+            <th>Name</th>
             <th>Benefits</th>
             <th>Description</th>
             <th>Location</th>
-            <th>Preparation Methods</th>
+            <th>Prepare</th>
           </tr>
 
           <?php
-          foreach ($data as $data) {
+          foreach ($datas as $data) {
             print_data($data);
           }
           ?>
         </table>
     <?php
       } else {
-        echo "<p> Sorry we do not have that information yet.</p>";
+        // No results found
+        echo "<p>We do not have any information on that currently. You can check out more herbs here: https://web.extension.illinois.edu/herbs/directory.cfm </p>";
       }
     }
     ?>
 
-    <?php
-    // Feedback
-    foreach ($feedback as $feedback) {
-      echo "<p><strong>" . htmlspecialchars($feedback) . "</strong></p>\n";
-    }
-    ?>
+    <h2>Add Your Favorite Herb</h2>
 
-    <h2>Add Your Own Favorite Herb</h2>
+    <div id= messege>
+      <?php
+      foreach ($messages as $message) {
+        echo htmlspecialchars($message) ;}
+      ?>
+    </div>
 
-    <form id = "addherb" action = "plants.php" method = "post" novalidate>
-      <div class = "input">
-        <label>
-          Name:
-        </label>
-        <input type="Text" name="name" />
-      </div>
-      <div class = "input">
-        <label>
-          Benefits:
-        </label>
-        <input type="Text" name="benefits" />
-      </div>
-      <div class = "input">
-        <label>
-          Description:
-        </label>
-        <input type="Text" name="description" />
-      </div>
-      <div class = "input">
-        <label>
-          Location:
-        </label>
-        <input type="Text" name="location" />
-      </div>
-      <div class = "input">
-        <label>
-          Preparation Methods:
-        </label>
-        <input type="Text" name="prepare" />
-      </div>
-      <div class = "input">
-        <span></span>
-        <button type="submit"> Add Herb </button>
-      </div>
-
+    <form id="addherb" action="plants.php" method="post" novalidate>
+        <div class="form">
+          <label>Name:</label>
+          <input type="text" name="_name" />
+        </div>
+        <div class="form">
+          <label>Benefits:</label>
+          <input type="text" name="_name" />
+        </div>
+        <div class="form">
+          <label>Description:</label>
+          <input type="text" name="_name" />
+        </div>
+        <div class="form">
+          <label>Location:</label>
+          <input type="text" name="_name" />
+        </div>
+        <div class="form">
+          <label>Prepare:</label>
+          <input type="text" name="_name" />
+        </div>
+        <div class="form">
+          <span></span>
+          <button class=button2 type="submit"> Add Herb </button>
+        </div>
+       </div>
     </form>
 
     <footer>
