@@ -272,6 +272,18 @@
     padding-top: 80px;
   }
 
+  #name{
+    font-weight: bold;
+    }
+
+  #nametitle{
+    width: 30%;
+  }
+
+  .info{
+    background-color: white;
+  }
+
  footer {
    margin-top: 20px;
    padding: 20px;

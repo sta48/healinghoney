@@ -10,11 +10,11 @@ function print_data($data)
 {
 ?>
   <tr>
-    <td><?php echo htmlspecialchars($data["_name"]); ?></td>
-    <td><?php echo htmlspecialchars($data["benefits"]); ?></td>
-    <td><?php echo htmlspecialchars($data["_description"]); ?></td>
-    <td><?php echo htmlspecialchars($data["_location"]); ?></td>
-    <td><?php echo htmlspecialchars($data["prepare"]); ?></td>
+    <td id='name'><?php echo htmlspecialchars($data["_name"]); ?></td>
+    <td class='info'><?php echo htmlspecialchars($data["benefits"]); ?></td>
+    <td class='info'><?php echo htmlspecialchars($data["_description"]); ?></td>
+    <td class='info'><?php echo htmlspecialchars($data["_location"]); ?></td>
+    <td class='info'><?php echo htmlspecialchars($data["prepare"]); ?></td>
   </tr>
 <?php
 }
@@ -160,9 +160,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       ?>
         <table>
           <tr>
-            <th>Name</th>
+            <th id='nametitle'>Name</th>
             <th>Benefits</th>
-            <th>Description</th>
+            <th id='desctitle'>Description</th>
             <th>Location</th>
             <th>Prepare</th>
           </tr>
